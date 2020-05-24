@@ -19,8 +19,11 @@ void threadf(int new_soc,int j)
 {
 
 char buffer[1024];
-(recv(new_soc, buffer, 50, 0));
+cout<<"This is from the thread "<<this_thread::get_id()<<endl;
+while(recv(new_soc, buffer, 50, 0))
+{
 printf("\nRequesting for file: %s\n", buffer);
+}
 ret[j]=-1;
 }
 
